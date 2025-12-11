@@ -6,19 +6,20 @@ export class Config {
    * The base URL of the PDS (Personal Data Server).
    * @default none
    */
-  static readonly PDS_URL: string = "";
+  static readonly PDS_URL: string = import.meta.env.VITE_PDS_URL || "";
 
   /**
    * Theme to be used
    * @default "default"
    */
-  static readonly THEME: string = "default";
+  static readonly THEME: string = import.meta.env.VITE_THEME || "default";
 
   /**
    * The base URL of the frontend service for linking to replies/quotes/accounts etc.
    * @default "https://deer.social" // or https://bsky.app if you're boring
    */
-  static readonly FRONTEND_URL: string = "https://deer.social";
+  static readonly FRONTEND_URL: string =
+    import.meta.env.VITE_FRONTEND_URL || "https://deer.social";
 
   /**
    * Maximum number of posts to fetch from the PDS per request
@@ -27,18 +28,22 @@ export class Config {
    * since sorting is slow and is done on the frontend
    * @default 20
    */
-  static readonly MAX_POSTS: number = 20;
+  static readonly MAX_POSTS: number = import.meta.env.VITE_MAX_POSTS
+    ? parseInt(import.meta.env.VITE_MAX_POSTS, 10)
+    : 20;
 
   /**
    * Footer text for the dashboard, you probably want to change this. Supports HTML.
    * @default "<a href='https://git.witchcraft.systems/scientific-witchery/pds-dash' target='_blank'>Source</a> (<a href='https://github.com/witchcraft-systems/pds-dash/' target='_blank'>github mirror</a>)"
    */
   static readonly FOOTER_TEXT: string =
+    import.meta.env.VITE_FOOTER_TEXT ||
     "<a href='https://git.witchcraft.systems/scientific-witchery/pds-dash' target='_blank'>Source</a> (<a href='https://github.com/witchcraft-systems/pds-dash/' target='_blank'>github mirror</a>)";
 
   /**
    * Whether to show the posts with timestamps that are in the future.
    * @default false
    */
-  static readonly SHOW_FUTURE_POSTS: boolean = false;
+  static readonly SHOW_FUTURE_POSTS: boolean =
+    import.meta.env.VITE_SHOW_FUTURE_POSTS === "true";
 }

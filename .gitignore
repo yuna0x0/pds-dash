@@ -152,4 +152,4 @@ dist
 .pnp.*
 
 # Config files
-config.ts
+# config.ts

@@ -6,24 +6,25 @@ a frontend dashboard with stats for your ATProto PDS.
 
 ### prerequisites
 
-- [deno](https://deno.com/manual/getting_started/installation)
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [pnpm](https://pnpm.io/installation)
 
 ### installing
 
-clone the repo, copy `config.ts.example` to `config.ts` and edit it to your liking.
+clone the repo, copy `.env.example` to `.env` and edit it to your liking.
 
-then, install dependencies using deno:
+then, install dependencies using pnpm:
 
 ```sh
-deno install
+pnpm install
 ```
 
 ### development server
 
-local develompent server with hot reloading:
+local development server with hot reloading:
 
 ```sh
-deno task dev
+pnpm dev
 ```
 
 ### building
@@ -31,7 +32,7 @@ deno task dev
 to build the optimized bundle run:
 
 ```sh
-deno task build
+pnpm build
 ```
 
 the output will be in the `dist/` directory.
@@ -42,7 +43,16 @@ we use our own CI/CD workflow at [`.forgejo/workflows/deploy.yaml`](.forgejo/wor
 
 ## configuring
 
-[`config.ts`](config.ts) is the main configuration file, you can find more information in the file itself.
+Configuration is done via environment variables in a `.env` file. Copy `.env.example` to `.env` and modify the values:
+
+- `VITE_PDS_URL` - The base URL of your PDS (required)
+- `VITE_THEME` - Theme directory name (default: `default`)
+- `VITE_FRONTEND_URL` - Frontend service URL for links (default: `https://deer.social`)
+- `VITE_MAX_POSTS` - Maximum posts per request (default: `20`)
+- `VITE_FOOTER_TEXT` - Footer HTML text
+- `VITE_SHOW_FUTURE_POSTS` - Show posts with future timestamps (default: `false`)
+
+You can also edit [`config.ts`](config.ts) directly to change the default fallback values.
 
 ## theming
 
@@ -50,7 +60,7 @@ themes are located in the `themes/` directory, you can create your own theme by 
 
 currently, the name of the theme is determined by the directory name, and the theme itself is defined in `theme.css` inside that directory.
 
-you can switch themes by changing the `theme` property in `config.ts`.
+you can switch themes by changing the `VITE_THEME` environment variable in your `.env` file.
 
 the favicon is located at [`public/favicon.ico`](public/favicon.ico)
 
