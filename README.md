@@ -2,6 +2,8 @@
 
 a frontend dashboard with stats for your ATProto PDS.
 
+forked from: https://git.witchcraft.systems/scientific-witchery/pds-dash
+
 ## setup
 
 ### prerequisites
