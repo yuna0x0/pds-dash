@@ -39,9 +39,9 @@ pnpm build
 
 the output will be in the `dist/` directory.
 
-## deploying
+<!--## deploying
 
-we use our own CI/CD workflow at [`.forgejo/workflows/deploy.yaml`](.forgejo/workflows/deploy.yaml), but it boils down to building the project bundle and deploying it to a web server. it'll probably make more sense to host it on the same domain as your PDS, but it doesn't affect anything if you host it somewhere else.
+we use our own CI/CD workflow at [`.forgejo/workflows/deploy.yaml`](.forgejo/workflows/deploy.yaml), but it boils down to building the project bundle and deploying it to a web server. it'll probably make more sense to host it on the same domain as your PDS, but it doesn't affect anything if you host it somewhere else.-->
 
 ## configuring
 
